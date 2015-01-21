@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'Pixel';
+  src: url('font/Munro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+#console {
+    position : absolute;
+    height : 500px;
+    width: 500px;
+    background:white;
+    border: 1px solid black;
+    
+}
+
+canvas{
+	position:absolute;
+	width:100%;
+	height:100%;
+	margin:0;
+	padding:0;
+	top:0;
+	left:0;
+}
+
+#gui #whiteElement{
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-color: #fff;
+}
+
+#gui {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+
+.guiElement {
+	display: none;
+}
+
+#start {
+	position: absolute;
+	height: 100px;
+	margin-left: 40%;
+	margin-right: 40%;
+	width: 20%;
+	background: white;
+	opacity: 0.8;
+	border: 1px solid#ccc;
+	border-radius: 7px;
+	top: 80%;
+}
+
+
