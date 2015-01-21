@@ -40,7 +40,12 @@ Class("Platform", {
 		cover2.mesh.position.set(200, 0, 180);
 
 		//creating the actual platform
-		this.createPlatform();
+		include("app/scripts/platform/blockScript", function() {
+			world.platform.createPlatform();
+		});
+		//including also collectablescript
+		include("app/scripts/platform/collectableScript");
+		//this.createPlatform();
 
 	},
 

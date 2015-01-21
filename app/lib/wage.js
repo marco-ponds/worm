@@ -88,7 +88,7 @@ function include(a, b) {
             j == a.length && b();
         }, l = 0; l < a.length; l++) i(a[l]) ? b && k() : (c = document.createElement("script"), 
         c.type = "text/javascript", c.src = a + ".js", b && (c.onload = c.onreadystatechange = function() {
-            this.readyState && "complete" != this.readyState || k();
+            this.readyState && "complete" != this.readyState || (j++, k());
         }), e = document.getElementsByTagName("script")[0], e.parentNode.insertBefore(c, e));
     } else "string" == typeof a && (console.log("trying to load " + a), i(a) ? b && b() : (d = !1, 
     c = document.createElement("script"), c.type = "text/javascript", c.src = a + ".js", 
@@ -16330,8 +16330,8 @@ Game.script = function(a, b) {
     a in Game.scripts || (Game.scripts[a] = c);
 }, Game.attachScriptToObject = function(a, b, c) {
     var d = c + b;
-    Game.finished = !1, include(d, function() {
-        a.__loadScript(Game.scripts[b]), Game.finished = !0, console.log("changing game finished value " + Game.finished);
+    include(d, function() {
+        console.log(a), console.log(Game.scripts[b]), console.log("-----"), a.__loadScript(Game.scripts[b]);
     });
 }, Game.scripts = {};
 
