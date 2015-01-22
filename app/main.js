@@ -231,7 +231,7 @@ preload = function(callback) {
 	//loading json models
 	console.log("Inside preLoad method.");
 	var loader = new THREE.JSONLoader();
-	loader.load("wood.json", function(geometry, materials) {
+	loader.load("WormScene.json", function(geometry, materials) {
 		woodGeom = geometry;
 		woodMaterial = materials[0];
 		woodMaterial.map.repeat.x = 20;
