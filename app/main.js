@@ -22,7 +22,7 @@ var textures = {};
 
 function onCreate() {
 
-	//core.scene.fog = new THREE.FogExp2( 0xefd1b5, 0.001);//0xefd1b5, 0.001 );
+	core.scene.fog = new THREE.FogExp2( 0xefd1b5, 0.0005);//0xefd1b5, 0.001 );
 
 	Game.level = 1;
 	Game.difficulty = 1;
