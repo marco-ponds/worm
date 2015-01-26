@@ -38,6 +38,14 @@ Class("World", {
 		this.bookshelf = new Mesh(new THREE.BoxGeometry(50, 1000, 1000), new THREE.MeshBasicMaterial({map : bookshelfTexture}));
 		this.bookshelf.mesh.position.set(1000, -50, 0);
 
+		//creating wall
+		var wallTexture = new THREE.ImageUtils.loadTexture( "img/stonebrick_carved.png" );
+		wallTexture.wrapS = wallTexture.wrapT = THREE.RepeatWrapping;
+		wallTexture.repeat.set( 8, 8 );
+		this.wall = new Mesh(new THREE.BoxGeometry(2000, 2000, 100), new THREE.MeshBasicMaterial({map : wallTexture}));
+		this.wall.mesh.position.set(0, -500, -550);
+
+
 		//Creating white background
 		var material = new THREE.MeshBasicMaterial({
 			color : 0xffffff,

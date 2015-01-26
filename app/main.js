@@ -231,11 +231,11 @@ preload = function(callback) {
 	//loading json models
 	console.log("Inside preLoad method.");
 	var loader = new THREE.JSONLoader();
-	loader.load("WormScene.json", function(geometry, materials) {
+	loader.load("WormWall.json", function(geometry, materials) {
 		woodGeom = geometry;
-		woodMaterial = materials[0];
-		woodMaterial.map.repeat.x = 20;
-		woodMaterial.map.repeat.y = 20;
+		woodMaterial = materials;
+		//woodMaterial.map.repeat.x = 20;
+		//woodMaterial.map.repeat.y = 20;
 		textures["base"] = THREE.ImageUtils.loadTexture("img/iron.png", {}, function() {
 			saveTextures(0, 0, callback);
 		});
