@@ -24,6 +24,19 @@ Class("World", {
 		this.leg = new Mesh(new THREE.CylinderGeometry(30, 30, 700, 10), new THREE.MeshBasicMaterial({map : legTexture}));
 		this.leg.mesh.position.set(900,-400, 220)
 
+		//creating floor
+		var floorTexture = new THREE.ImageUtils.loadTexture( "img/stonebrick_carved.png" );
+		floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping;
+		floorTexture.repeat.set( 40, 40 );
+		this.floor = new Mesh(new THREE.BoxGeometry(5000, 40, 5000), new THREE.MeshBasicMaterial({map : floorTexture}));
+		this.floor.mesh.position.set(0, -500, 0);
+
+		//creating bookshelf
+		var bookshelfTexture = new THREE.ImageUtils.loadTexture( "img/bookshelf.png" );
+		bookshelfTexture.wrapS = bookshelfTexture.wrapT = THREE.RepeatWrapping;
+		bookshelfTexture.repeat.set( 5, 5 );
+		this.bookshelf = new Mesh(new THREE.BoxGeometry(50, 1000, 1000), new THREE.MeshBasicMaterial({map : bookshelfTexture}));
+		this.bookshelf.mesh.position.set(1000, -50, 0);
 
 		//Creating white background
 		var material = new THREE.MeshBasicMaterial({
