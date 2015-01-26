@@ -8,6 +8,6 @@ config = {
 		fov: 45, 
 		ratio: (window.innerWidth / window.innerHeight), 
 		near: 1, 
-		far: 5000
+		far: 10000
 	}
 };
