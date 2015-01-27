@@ -20,7 +20,7 @@ var woodGeom, woodMaterial;
 
 var textures = {};
 
-var messages = ["Loading..", "Initializing awesomeness.", "Optimizing Universe.", "Waiting for the answer to Life, the Universe and everything.."];
+var messages = ["Loading..", "Initializing awesomeness.", "Optimizing Universe.", "Creating pixels..", "Hey mum! No hands!", "#yolo", "Thanks Mr.Doob, I <3 you.", "Waiting for the answer to Life, the Universe and everything.."];
 var messagesInterval, finishedLoading = false;
 
 function onCreate() {
