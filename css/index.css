@@ -7,6 +7,7 @@
 
 body {
     background-color: rgb(255, 255, 255);
+    font-family: "Pixel"
 }
 
 #console {
@@ -57,11 +58,43 @@ canvas{
 	margin-left: 40%;
 	margin-right: 40%;
 	width: 20%;
-	background: white;
+	/* background: white; */
 	opacity: 0.8;
-	border: 1px solid#ccc;
+	/* border: 1px solid#ccc; */
 	border-radius: 7px;
 	top: 80%;
+	background: url("../img/hud.png");
+	color: black;
+	/* background-clip: border-box; */
+	background-size: cover;
+	background-repeat: round;
+	line-height: 100px;
+	font-size: 32px;
+	text-align: CENTER;
 }
 
+#gameinfo {
+	position: absolute;
+	width: 20%;
+	height: auto;
+	background: url("../img/hud.png");
+	color: black;
+	/* background-clip: border-box; */
+	background-size: cover;
+	background-repeat: round;
+	top: 50%;
+	left: 20px;
+	opacity: 0.6;
+	text-align: center;
+}
+
+#gameinfo h1, h2 {
+	position: relative;
+	margin:10px;
+	clear: both;
+	height: 80px;
+	font-size: 40px;
+	
+	line-height: 80px;
+}
 

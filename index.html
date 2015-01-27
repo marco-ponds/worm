@@ -23,10 +23,23 @@
 		</div>
 
 		<div id="gui">
+			<h1 id="title" style="
+			    /* margin: 20px; */
+			    font-size: 40px;
+			    color: black;
+			    letter-spacing: 20px;
+			    left: 20px;
+			    position: absolute;
+			">WORM</h1>
+			<h5 style="
+			    position: absolute;
+			    left: 20px;
+			    top: 50px;
+			">proudly developed by <a target="_blank" href="http://marcostagni.com">Marco Stagni</a>.</h5>
 			<div id="whiteElement">
 			</div>
-			<button class="guiElement" onclick="Game.start();" id="start">START</button>
-			<div class="gameElement">
+			<div class="guiElement" onclick="Game.start();" id="start">START</div>
+			<div id="gameinfo" class="guiElement">
 				<h1 id="points"></h1>
 				<h1 id="level"></h1>
 				<h2 id="lives"></h2>

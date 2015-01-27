@@ -65,7 +65,7 @@ Game.update = function() {
 
 Game.start = function() {
 	$("#whiteElement").fadeOut();
-	$(".guiElement").fadeOut();
+	$("#start").fadeOut();
 	world.worm = new Worm();
 	world.platform.createRandomCollectable();
 	var a = function() {
@@ -157,9 +157,9 @@ function DieWormDie() {
 }
 
 function updateGui() {
-	$('#points').text(Game.points);
-	$('#level').text(Game.level);
-	$('#lives').text(Game.lives);
+	$('#points').text("points: " + Game.points);
+	$('#level').text("level: " + Game.level);
+	$('#lives').text("lives: " + Game.lives);
 }
 
 function onDocumentMouseWheel (event) {
