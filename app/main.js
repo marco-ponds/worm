@@ -20,6 +20,9 @@ var woodGeom, woodMaterial;
 
 var textures = {};
 
+var messages = ["Loading..", "Initializing awesomeness.", "Optimizing Universe.", "Waiting for the answer to Life, the Universe and everything.."];
+var messagesInterval, finishedLoading = false;
+
 function onCreate() {
 
 	core.scene.fog = new THREE.FogExp2( 0xefd1b5, 0.0005);//0xefd1b5, 0.001 );
@@ -212,10 +215,10 @@ function onDocumentTouchMove( event ) {
 ********************************************************************************/
 
 progressAnimation = function(callback) {
-	$('#loader').animate({"opacity" : "0", "margin-top" : "250px"}, 1000 , function () {
+	/*$('#loader').animate({"opacity" : "0"}, 1000 , function () {
 		$('#loader').remove();
 		$('body').animate({backgroundColor : "#fff"}, 200 , callback);
-	});
+	});*/
 }
 
 /********************************************************************************
@@ -231,6 +234,13 @@ progressAnimation = function(callback) {
 preload = function(callback) {
 	//use this method to perform heavy tasks
 	//loading json models
+	messagesInterval = function() {
+		$("#loading").text(messages[parseInt(Math.random()*messages.length)]);
+		if (!finishedLoading) {
+			setTimeout(messagesInterval, Math.random() * 20000);
+		}
+	};
+	messagesInterval();
 	console.log("Inside preLoad method.");
 	var loader = new THREE.JSONLoader();
 	loader.load("WormWall.json", function(geometry, materials) {

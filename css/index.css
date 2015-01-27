@@ -6,7 +6,8 @@
 }
 
 body {
-    background-color: rgb(255, 255, 255);
+    /*background-color: rgb(255, 255, 255);*/
+    background: #2ecc71;
     font-family: "Pixel"
 }
 
@@ -27,6 +28,19 @@ canvas{
 	padding:0;
 	top:0;
 	left:0;
+}
+
+#loader {
+	background: #2ecc71;
+	z-index: 9999999;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding-top: 10%;
+	color: #f1c40f;
+	text-align: center;
 }
 
 #gui #whiteElement{
