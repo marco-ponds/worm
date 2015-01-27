@@ -157,6 +157,7 @@ function DieWormDie() {
 	Game.over = true;
 	new Sound("gameover").start();
 	world.worm.die();
+	world.fire.repeat = false;
 }
 
 function updateGui() {
@@ -215,10 +216,10 @@ function onDocumentTouchMove( event ) {
 ********************************************************************************/
 
 progressAnimation = function(callback) {
-	/*$('#loader').animate({"opacity" : "0"}, 1000 , function () {
+	$('#loader').animate({"opacity" : "0"}, 1000 , function () {
 		$('#loader').remove();
 		$('body').animate({backgroundColor : "#fff"}, 200 , callback);
-	});*/
+	});
 }
 
 /********************************************************************************
