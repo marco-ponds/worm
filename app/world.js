@@ -45,6 +45,28 @@ Class("World", {
 		this.wall = new Mesh(new THREE.BoxGeometry(2000, 2000, 100), new THREE.MeshBasicMaterial({map : wallTexture}));
 		this.wall.mesh.position.set(0, -500, -550);
 
+		//creating a candle
+		var whiteTexture = new THREE.ImageUtils.loadTexture( "img/whiteTexture.png" );
+		whiteTexture.wrapS = whiteTexture.wrapT = THREE.RepeatWrapping;
+		whiteTexture.repeat.set( 2, 2 );
+		this.plate = new Mesh(new THREE.CylinderGeometry(50, 50, 5, 10), new THREE.MeshBasicMaterial({map : whiteTexture}));
+		this.plate.mesh.position.set(500, 0, 150)
+
+		var candleTexture = new THREE.ImageUtils.loadTexture( "img/candleTexture.png" );
+		candleTexture.wrapS = candleTexture.wrapT = THREE.RepeatWrapping;
+		candleTexture.repeat.set( 2, 2 );
+		this.candle = new Mesh(new THREE.CylinderGeometry(20, 20, 100, 10), new THREE.MeshBasicMaterial({map : candleTexture}));
+		this.candle.mesh.position.set(500, 40, 150);
+
+		var stoppino = new Mesh(new THREE.CylinderGeometry(2, 2, 10, 10), new THREE.MeshBasicMaterial({color : 0x000000}));
+		stoppino.mesh.position.set(500, 90, 150);
+
+		//candle fire
+		this.fire = new ParticleEngine();
+		this.fire.setValues(ParticleEngineModels.candle);
+		this.fire.initialize();
+		this.fire.particleMesh.position.set(500, 95, 150);
+		this.fire.particleMesh.scale.set(0.6,0.6,0.6);
 
 		//Creating white background
 		var material = new THREE.MeshBasicMaterial({

@@ -34,7 +34,7 @@ function onCreate() {
 	Game.collidedCollectable = false;
 	Game.collidedSelf = false;
 
-	AudioEngine.DELAY_FACTOR = 2;
+	AudioEngine.DELAY_FACTOR = 100;
 	AudioEngine.volume.gain.value = 10; //TEMP
 
 	world = new World();
@@ -54,6 +54,13 @@ function onCreate() {
 		$('.guiElement').css("display", "block");
 	});
 
+}
+
+Game.update = function() {
+	try {
+		world.fire.update(core.clock.getDelta() * 0.5);
+	}
+	catch(e){}
 }
 
 Game.start = function() {
@@ -141,11 +148,6 @@ Game.addPoints = function(points) {
 		Game.wormStep = 300;
 	}
 	updateGui();
-}
-
-Game.update = function() {
-	//controlla una marea di roba
-	//updateGui();
 }
 
 function DieWormDie() {
