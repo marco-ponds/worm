@@ -66,7 +66,7 @@ canvas{
 	display: none;
 }
 
-#start {
+#start, #restart {
 	position: absolute;
 	height: 100px;
 	margin-left: 40%;
@@ -77,8 +77,9 @@ canvas{
 	/* border: 1px solid#ccc; */
 	border-radius: 7px;
 	top: 80%;
-	background: url("../img/hud.png");
-	color: black;
+	/*background: url("../img/hud.png");*/
+	background: #f1c40f;
+	color: white;
 	/* background-clip: border-box; */
 	background-size: cover;
 	background-repeat: round;
@@ -110,5 +111,17 @@ canvas{
 	font-size: 40px;
 	
 	line-height: 80px;
+}
+
+#gameover {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	background: #e74c3c;
+	color: white;
+	text-align: center;
 }
 

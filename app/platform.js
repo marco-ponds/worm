@@ -88,6 +88,11 @@ Class("Platform", {
 
 	},
 
+	removeRandomCollectable : function() {
+		world.worm.target.mesh.visible = false;
+		world.worm.target.reference.changeColor();
+	},
+
 	createRandomObstacle : function() {
 		var index = parseInt(Math.random() * world.platform.blocks.length)
 		var o = world.platform.blocks[index];

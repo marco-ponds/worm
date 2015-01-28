@@ -53,7 +53,7 @@ function onCreate() {
 	core.camera.addScript("cameraScript", "camera");
 
 	new Sound("intro").start();
-	$('#whiteElement').animate({"opacity" : "0.5"}, 5000, function() {
+	$('#whiteElement').animate({"opacity" : "0.5"}, 2000, function() {
 		$('.guiElement').css("display", "block");
 	});
 
@@ -64,6 +64,33 @@ Game.update = function() {
 		world.fire.update(core.clock.getDelta() * 0.5);
 	}
 	catch(e){}
+}
+
+Game.restart = function() {
+	//clean everything
+	world.platform.removeRandomCollectable();
+	try {
+		var path = world.worm.body.getPath(world.worm.body.getAllLeaves()[0]);
+		for (var i=1; i<path.length; i++) {
+			core.remove(path[i].n.data.mesh);
+		}
+	} catch (e) {}
+	finally {
+		core.remove(world.worm.head.mesh);
+	}
+	$('#gameover').animate({"opacity" : "0","z-index" : "-99"}, 500, function() {
+		//starting game
+		Game.level = 1;
+		Game.difficulty = 1;
+		Game.points = 0;
+		Game.lives = 3;
+		Game.over = false;
+		Game.wormStep = 1200;
+
+		Game.collidedCollectable = false;
+		Game.collidedSelf = false;
+		Game.start();
+	});
 }
 
 Game.start = function() {
@@ -154,10 +181,14 @@ Game.addPoints = function(points) {
 }
 
 function DieWormDie() {
+	console.log("game over, man");
 	Game.over = true;
 	new Sound("gameover").start();
 	world.worm.die();
 	world.fire.repeat = false;
+	$('#gameover').animate({"opacity" : "0.7","z-index" : "99"}, 500, function() {
+		$('#score').text("Your score: " + Game.points);
+	});
 }
 
 function updateGui() {
