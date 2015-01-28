@@ -7,8 +7,13 @@ Class("Worm", {
 		this.collidables = [];
 		this.head.addScript("wormHead", "worm");
 
+		this.init();
+	},
+
+	init : function() {
 		this.head.mesh.position.set(0, 20, 0);
-		this.head.mesh.add(new THREE.AxisHelper());
+		this.head.mesh.rotation.set(0, 0, 0);
+
 		this.quaternion = new THREE.Quaternion();
 		this.xAxis = new THREE.Vector3(1, 0, 0);
 		this.yAxis = new THREE.Vector3(0, 1, 0);
@@ -19,7 +24,8 @@ Class("Worm", {
 
 		this.platform = 1; //1: lower, 2: left, 3: right
 		this.stopped = false;
-	
+		this.target = undefined;
+
 		this.STEP = 200;
 		this.moveStep = 0;
 		this.singleStep = 20;
@@ -69,31 +75,6 @@ Class("Worm", {
 	rotate : function(axis, angle) {
 		this.quaternion.setFromAxisAngle(axis, angle);
 		this.head.mesh.quaternion.multiply(this.quaternion);
-		/*if (direction == "left") {
-			switch(this.platform) {
-				case 1 : {
-
-				}
-				case 2 : {
-
-				}
-				case 3 : {
-
-				}
-			}
-		} else {
-			switch(this.platform) {
-				case 1 : {
-
-				}
-				case 2 : {
-
-				}
-				case 3 : {
-
-				}
-			}
-		}*/
 	},
 
 	getPosition : function() {

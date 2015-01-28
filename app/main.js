@@ -75,9 +75,7 @@ Game.restart = function() {
 			core.remove(path[i].n.data.mesh);
 		}
 	} catch (e) {}
-	finally {
-		core.remove(world.worm.head.mesh);
-	}
+
 	$('#gameover').animate({"opacity" : "0","z-index" : "-99"}, 500, function() {
 		//starting game
 		Game.level = 1;
@@ -96,7 +94,13 @@ Game.restart = function() {
 Game.start = function() {
 	$("#whiteElement").fadeOut();
 	$("#start").fadeOut();
-	world.worm = new Worm();
+	if (!world.worm) {
+		world.worm = new Worm();
+	} else {
+		world.worm.resurrect();
+		world.worm.init();
+		world.worm.head.start();
+	}
 	world.platform.createRandomCollectable();
 	var a = function() {
 		var time = (Math.random() * Game.wormStep) + 1000;
@@ -110,13 +114,13 @@ Game.start = function() {
 }
 
 Game.wentOutside = function() {
-	DieWormDie();
+	DieWormDie("wentOutside");
 }
 
 Game.handleCollision = function() {
 	Game.lives -= 1;
 	if (Game.lives == 0) {
-		DieWormDie();
+		DieWormDie("no more lives");
 	} else {
 		new Sound("error").start();
 		world.worm.die();
@@ -127,7 +131,7 @@ Game.handleCollision = function() {
 }
 
 Game.handleSelfCollision = function() {
-	DieWormDie();
+	DieWormDie("self collision");
 }
 
 Game.notifyCollectable = function() {
@@ -180,8 +184,8 @@ Game.addPoints = function(points) {
 	updateGui();
 }
 
-function DieWormDie() {
-	console.log("game over, man");
+function DieWormDie(where) {
+	console.log("game over, man", where);
 	Game.over = true;
 	new Sound("gameover").start();
 	world.worm.die();
