@@ -76,24 +76,28 @@ Game.restart = function() {
 		}
 	} catch (e) {}
 
-	$('#gameover').animate({"opacity" : "0","z-index" : "-99"}, 500, function() {
+	//$('#gameover').animate({"opacity" : "0","z-index" : "-99"}, 500, function() {
 		//starting game
-		Game.level = 1;
-		Game.difficulty = 1;
-		Game.points = 0;
-		Game.lives = 3;
-		Game.over = false;
-		Game.wormStep = 1200;
+	$('#gameover').fadeOut();
+	$('#gameover').css("z-index", "-99");
+	Game.level = 1;
+	Game.difficulty = 1;
+	Game.points = 0;
+	Game.lives = 3;
+	Game.over = false;
+	Game.wormStep = 1200;
 
-		Game.collidedCollectable = false;
-		Game.collidedSelf = false;
-		Game.start();
-	});
+	Game.collidedCollectable = false;
+	Game.collidedSelf = false;
+	Game.start();
+	//});
 }
 
 Game.start = function() {
 	$("#whiteElement").fadeOut();
 	$("#start").fadeOut();
+	$('#gameinfo').css("display", "block");
+
 	if (!world.worm) {
 		world.worm = new Worm();
 	} else {
@@ -190,9 +194,13 @@ function DieWormDie(where) {
 	new Sound("gameover").start();
 	world.worm.die();
 	world.fire.repeat = false;
-	$('#gameover').animate({"opacity" : "0.7","z-index" : "99"}, 500, function() {
-		$('#score').text("Your score: " + Game.points);
-	});
+	$('#gameinfo').css("display", "none");
+	//$('#gameover').animate({"opacity" : "0.7","z-index" : "99"}, 1000, function() {
+	//	$('#score').text("Your score: " + Game.points);
+	//});
+	$('#gameover').fadeIn();
+	$('#gameover').css("z-index", "99");
+	$('#score').text("Your score: " + Game.points);
 }
 
 function updateGui() {

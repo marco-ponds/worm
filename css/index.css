@@ -68,10 +68,10 @@ canvas{
 
 #start, #restart {
 	position: absolute;
-	height: 100px;
-	margin-left: 40%;
-	margin-right: 40%;
-	width: 20%;
+	height: 60px;
+	margin-left: 42%;
+	margin-right: 42%;
+	width: 16%;
 	/* background: white; */
 	opacity: 0.8;
 	/* border: 1px solid#ccc; */
@@ -83,7 +83,7 @@ canvas{
 	/* background-clip: border-box; */
 	background-size: cover;
 	background-repeat: round;
-	line-height: 100px;
+	line-height: 60px;
 	font-size: 32px;
 	text-align: CENTER;
 }
@@ -93,7 +93,9 @@ canvas{
 	width: 20%;
 	height: auto;
 	background: url("../img/hud.png");
+	/* background: #1abc9c; */
 	color: black;
+	border-radius: 10px;
 	/* background-clip: border-box; */
 	background-size: cover;
 	background-repeat: round;
@@ -101,6 +103,7 @@ canvas{
 	left: 20px;
 	opacity: 0.6;
 	text-align: center;
+	display: none;
 }
 
 #gameinfo h1, h2 {
@@ -119,7 +122,7 @@ canvas{
 	width: 100%;
 	left: 0;
 	top: 0;
-	opacity: 0;
+	opacity: 0.7;
 	background: #e74c3c;
 	color: white;
 	text-align: center;
