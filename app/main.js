@@ -67,13 +67,10 @@ function facebook() {
 }
 
 function twitter() {
-	var link = document.createElement("a");
-	link.href = "https://twitter.com/share";
-	link.dataset.via = "marcoponds";
-	link.dataset.count = "none";
-	link.dataset.hashtags = "javascript";
-	link.dataset.text = "I just scored " + Game.points + " points with Worm! Beat me!";
-	link.click();
+	var winTop = (screen.height / 2) - (320 / 2);
+	var winLeft = (screen.width / 2) - (320 / 2);
+	var msg = "I just scored " + Game.points + " points with Worm! Beat me!";
+	window.open('https://twitter.com/intent/tweet?text=' + msg + '&hashtags=javascript&via=marcoponds,top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
 }
 
 Game.update = function() {
