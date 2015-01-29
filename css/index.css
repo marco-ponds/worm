@@ -143,3 +143,15 @@ canvas{
 	z-index: 99;
 }
 
+#chromeplease {
+	height: 200px;
+position: absolute;
+text-align: center;
+width: 100%;
+left: 0;
+margin-top: 200px;
+background: #3498db;
+color: #c0392b;
+line-height: 200px;
+}
+

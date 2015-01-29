@@ -108,27 +108,35 @@ Game.restart = function() {
 }
 
 Game.start = function() {
-	$("#whiteElement").fadeOut();
-	$('#startgame').fadeOut();
-	$("#start").fadeOut();
-	$('#gameinfo').css("display", "block");
-
-	if (!world.worm) {
-		world.worm = new Worm();
+	//not very smart browser detection 
+	if (navigator.vendor.indexOf("Google Inc.") == -1) {
+		$('body').append("<div id='chromeplease'><h1>This game runs only on Chrome. Please download it <a href='https://www.google.it/chrome/browser/desktop/'>here</a>.</h1></div>");
+		setTimeout(function() {
+			$('#chromeplease').fadeOut();
+		}, 5000);
 	} else {
-		world.worm.resurrect();
-		world.worm.init();
-		world.worm.head.start();
-	}
-	world.platform.createRandomCollectable();
-	var a = function() {
-		var time = (Math.random() * Game.wormStep) + 1000;
-		world.platform.createRandomObstacle();
-		if (!Game.over) {
-			setTimeout(a, time);
+		$("#whiteElement").fadeOut();
+		$('#startgame').fadeOut();
+		$("#start").fadeOut();
+		$('#gameinfo').css("display", "block");
+
+		if (!world.worm) {
+			world.worm = new Worm();
+		} else {
+			world.worm.resurrect();
+			world.worm.init();
+			world.worm.head.start();
 		}
+		world.platform.createRandomCollectable();
+		var a = function() {
+			var time = (Math.random() * Game.wormStep) + 1000;
+			world.platform.createRandomObstacle();
+			if (!Game.over) {
+				setTimeout(a, time);
+			}
+		}
+		a();
 	}
-	a();
 
 }
 
@@ -162,43 +170,43 @@ Game.addPoints = function(points) {
 	//changing game level
 	if ((0 < Game.points) && (Game.points < 100)) {
 		Game.level = 1;
-		Game.wormStep = 1200;
+		Game.wormStep = 800;
 	}
 	else if ((100 < Game.points) && (Game.points < 250)) {
 		Game.level = 2;
-		Game.wormStep = 1000;
+		Game.wormStep = 700;
 	}
 	else if ((250 < Game.points) && (Game.points < 600)) {
 		Game.level = 3;
-		Game.wormStep = 900;
+		Game.wormStep = 600;
 	}
 	else if ((600 < Game.points) && (Game.points < 1000)) {
 		Game.level = 4;
-		Game.wormStep = 800;
+		Game.wormStep = 550;
 	}
 	else if ((1000 < Game.points) && (Game.points < 1400)) {
 		Game.level = 5;
-		Game.wormStep = 750;
+		Game.wormStep = 500;
 	}
 	else if ((1400 < Game.points) && (Game.points < 2000)) {
 		Game.level = 6;
-		Game.wormStep = 630;
+		Game.wormStep = 450;
 	}
 	else if ((2000 < Game.points) && (Game.points < 2700)) {
 		Game.level = 7;
-		Game.wormStep = 560;
+		Game.wormStep = 400;
 	}
 	else if ((2700 < Game.points) && (Game.points < 3400)) {
 		Game.level = 8;
-		Game.wormStep = 480;
+		Game.wormStep = 300;
 	}
 	else if ((3400 < Game.points) && (Game.points < 4000)) {
 		Game.level = 9;
-		Game.wormStep = 400;
+		Game.wormStep = 250;
 	}
 	else if ((4000 < Game.points) && (Game.points < 5000)) {
 		Game.level = 10;
-		Game.wormStep = 300;
+		Game.wormStep = 200;
 	}
 	updateGui();
 }
