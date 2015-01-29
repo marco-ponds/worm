@@ -68,9 +68,9 @@ function facebook() {
 
 function twitter() {
 	var winTop = (screen.height / 2) - (320 / 2);
-	var winLeft = (screen.width / 2) - (320 / 2);
+	var winLeft = (screen.width / 2) - (500 / 2);
 	var msg = "I just scored " + Game.points + " points with Worm! Beat me! marcostagni.com/projects/worm ";
-	window.open('https://twitter.com/intent/tweet?text=' + msg + '&hashtags=javascript&via=marcoponds', 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=320,height=320');
+	window.open('https://twitter.com/intent/tweet?text=' + msg + '&hashtags=javascript&via=marcoponds', 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=500,height=320');
 }
 
 Game.update = function() {
