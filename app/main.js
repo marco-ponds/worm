@@ -38,7 +38,7 @@ function onCreate() {
 	Game.collidedSelf = false;
 
 	AudioEngine.DELAY_FACTOR = 1;
-	AudioEngine.volume.gain.value = 0;//100; //TEMP
+	AudioEngine.volume.gain.value = 10;//100; //TEMP
 
 	world = new World();
 	//world.platform.createRandomCollectable();
