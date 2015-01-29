@@ -62,7 +62,7 @@ function onCreate() {
 function facebook() {
 	FB.ui({
 	  method: 'share',
-	  href: "http://marcostagni.com/projects/worm",
+	  href: "http://marcostagni.com/projects/worm/",
 	}, function(response){});
 }
 
