@@ -11,6 +11,16 @@ body {
     font-family: "Pixel"
 }
 
+a {
+	text-decoration: none;
+}
+
+.share_button {
+	margin-left: 20px;
+	margin-right: 20px;
+	color: white;
+}
+
 #console {
     position : absolute;
     height : 500px;
@@ -45,7 +55,7 @@ canvas{
 
 #gui #whiteElement{
 	top: 0;
-	left: 0;
+	left:0;
 	margin: 0;
 	padding: 0;
 	width: 100%;
@@ -84,7 +94,7 @@ canvas{
 	background-size: cover;
 	background-repeat: round;
 	line-height: 60px;
-	font-size: 32px;
+	font-size: 24px;
 	text-align: CENTER;
 }
 
@@ -116,15 +126,20 @@ canvas{
 	line-height: 80px;
 }
 
-#gameover {
+#gameover, #startgame {
 	position: absolute;
 	height: 100%;
-	width: 100%;
-	left: 0;
+	width: 50%;
+	left: 25%;
 	top: 0;
 	opacity: 0.7;
 	background: #e74c3c;
 	color: white;
 	text-align: center;
+}
+
+#startgame {
+	background: #2ecc71;
+	z-index: 99;
 }
 

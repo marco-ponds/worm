@@ -10,9 +10,34 @@
 		<script type="text/javascript" src="app/lib/bee.min.js"></script>
 		<script type="text/javascript" src="app/lib/wage.js"></script>
 
+		<meta property="og:url" content="http://marcostagni.com/project/worm" /> 
+		<meta property="og:title" content="Worm, a simple game by Marco Stagni." />
+		<meta id="facebook_message" property="og:description" content="" /> 
+		<meta property="og:image" content="http://marcostagni.com/project/worm/img/wormPreview.png" /> 
 
 	</head>
 	<body>
+
+		<script>
+		  window.fbAsyncInit = function() {
+			FB.init({
+			  appId      : '845459058844435',
+			  xfbml      : true,
+			  version    : 'v2.2'
+			});
+		  };
+
+		  (function(d, s, id){
+			 var js, fjs = d.getElementsByTagName(s)[0];
+			 if (d.getElementById(id)) {return;}
+			 js = d.createElement(s); js.id = id;
+			 js.src = "//connect.facebook.net/en_US/sdk.js";
+			 fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+
+		  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		</script>
+
 		<div id="loader">
 			<h1 style="text-align: center; font-size: 52px;">WORM</h1>
 			<h6 style="text-align: center; text-decoration: none; font-size: 24px; margin-top: 10px;">
@@ -24,6 +49,15 @@
 		<div id="gameover">
 			<h1 style="text-align: center; font-size: 52px; margin-top: 100px;">GAME OVER</h1>
 			<h4 id="score" style="font-size: 40px;"></h4>
+			<h4>Share your result!</h4>
+			<h4>
+				<a class="share_button" href="javascript:facebook();">
+					<i class="fa fa-3x fa-facebook-square"></i>
+				</a>
+				<a class="share_button" href="javascript:facebook();">
+					<i class="fa fa-3x fa-twitter-square"></i>
+				</a>
+			</h4>
 			<div class="guiElement" onclick="Game.restart();" id="restart">RESTART</div>
 		</div>
 
@@ -31,14 +65,23 @@
 		</div>
 
 		<div id="gui">
-			<h1 id="title" style=" font-size: 40px; color: black; letter-spacing: 20px; left: 20px; position: absolute;">	WORM
-			</h1>
-			<h5 style="position: absolute; left: 20px; top: 50px;">
-				proudly developed by <a target="_blank" href="http://marcostagni.com">Marco Stagni</a>.
-			</h5>
+			
 			<div id="whiteElement">
 			</div>
-			<div class="guiElement" onclick="Game.start();" id="start">START</div>
+
+			<div id="startgame">
+				<h1 style="letter-spacing: 20px;font-size:72px; color:#f1c40f;">WORM</h1>
+				<h4 id="score" style="font-size: 24px;padding: 20px;margin-top: 100px;">
+					This game is a personal experiment, aimed to test and stress my "Game Engine". See this 
+					<a style="text-decoration: none;" target="_blank" href="http://marcostagni.com">link</a> 
+					for more informations. Click "START" to play. Enjoy!
+				</h4>
+				<h4 style="font-size: 24px;margin-bottom: 100px;">
+					Marco Stagni
+				</h6>
+				<div class="guiElement" onclick="Game.start();" id="restart" style="display: block;">START</div>
+			</div>
+
 			<div id="gameinfo">
 				<h1 id="points"></h1>
 				<h1 id="level"></h1>
@@ -48,5 +91,6 @@
 
 		<script type="text/javascript" src="app/assets.js"></script>
 		<script type="text/javascript" src="app/main.js"></script>
+	
 	</body>
 </html>

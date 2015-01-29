@@ -37,8 +37,8 @@ function onCreate() {
 	Game.collidedCollectable = false;
 	Game.collidedSelf = false;
 
-	AudioEngine.DELAY_FACTOR = 100;
-	AudioEngine.volume.gain.value = 10; //TEMP
+	AudioEngine.DELAY_FACTOR = 1;
+	AudioEngine.volume.gain.value = 0;//100; //TEMP
 
 	world = new World();
 	//world.platform.createRandomCollectable();
@@ -57,6 +57,23 @@ function onCreate() {
 		$('.guiElement').css("display", "block");
 	});
 
+}
+
+function facebook() {
+	FB.ui({
+	  method: 'share',
+	  href: "http://marcostagni.com/project/worm",
+	}, function(response){});
+}
+
+function twitter() {
+	var link = document.createElement("a");
+	link.href = "https://twitter.com/share";
+	link.dataset.via = "marcoponds";
+	link.dataset.count = "none";
+	link.dataset.hashtags = "javascript";
+	link.dataset.text = "I just scored " + Game.points + " points with Worm! Beat me!";
+	link.click();
 }
 
 Game.update = function() {
@@ -95,6 +112,7 @@ Game.restart = function() {
 
 Game.start = function() {
 	$("#whiteElement").fadeOut();
+	$('#startgame').fadeOut();
 	$("#start").fadeOut();
 	$('#gameinfo').css("display", "block");
 
@@ -201,6 +219,7 @@ function DieWormDie(where) {
 	$('#gameover').fadeIn();
 	$('#gameover').css("z-index", "99");
 	$('#score').text("Your score: " + Game.points);
+	$('#facebook_message').attr("content", "I just scored " + Game.points + " points with Worm! Beat me!");
 }
 
 function updateGui() {
