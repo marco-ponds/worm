@@ -62,14 +62,14 @@ function onCreate() {
 function facebook() {
 	FB.ui({
 	  method: 'share',
-	  href: "http://marcostagni.com/project/worm",
+	  href: "http://marcostagni.com/projects/worm",
 	}, function(response){});
 }
 
 function twitter() {
 	var winTop = (screen.height / 2) - (320 / 2);
 	var winLeft = (screen.width / 2) - (320 / 2);
-	var msg = "I just scored " + Game.points + " points with Worm! Beat me!";
+	var msg = "I just scored " + Game.points + " points with Worm! Beat me! marcostagni.com/projects/worm ";
 	window.open('https://twitter.com/intent/tweet?text=' + msg + '&hashtags=javascript&via=marcoponds,top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
 }
 
