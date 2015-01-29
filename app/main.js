@@ -38,7 +38,7 @@ function onCreate() {
 	Game.collidedSelf = false;
 
 	AudioEngine.DELAY_FACTOR = 1;
-	AudioEngine.volume.gain.value = 10;//100; //TEMP
+	AudioEngine.volume.gain.value = 20;//100; //TEMP
 
 	world = new World();
 	//world.platform.createRandomCollectable();
@@ -69,7 +69,7 @@ function facebook() {
 function twitter() {
 	var winTop = (screen.height / 2) - (320 / 2);
 	var winLeft = (screen.width / 2) - (500 / 2);
-	var msg = "I just scored " + Game.points + " points with Worm! Beat me! marcostagni.com/projects/worm ";
+	var msg = "I just scored " + (Game.points-2) + " points with Worm! Beat me! marcostagni.com/projects/worm ";
 	window.open('https://twitter.com/intent/tweet?text=' + msg + '&hashtags=javascript&via=marcoponds', 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=500,height=320');
 }
 
